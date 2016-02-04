@@ -1,4 +1,4 @@
-FROM fingershock/ruby:2.2
+FROM fingershock/ruby:latest
 MAINTAINER Bryan Talbot <bryan.talbot@ijji.com>
 RUN apk add --no-cache -t build-deps ruby-dev make gcc libc-dev pcre-dev linux-headers g++ git
 
