@@ -1,0 +1,26 @@
+branches:
+  only:
+    - master
+
+language: bash
+
+services:
+  - docker
+
+before_install:
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+
+before_script:
+  - repo=fingershock/ruby
+
+script:
+  - docker build -t $repo:latest -f Dockerfile-runtime .
+  - docker build -t $repo:latest-builder -f Dockerfile-builder .
+  - ruby_version=$(docker run --rm $repo:latest ruby -e 'puts RUBY_VERSION')
+
+after_success:
+  - vertags="$(docker run --rm $repo:latest ruby -e '(0..1).each { |i| puts "$ruby_version".split('.')[0..i].join('.') }') $ruby_version"
+  - for ver in $vertags; do docker tag $repo:latest $repo:$ver; docker tag $repo:latest-builder $repo:$ver-builder; done
+  - for ver in $vertags; do echo docker push $repo:$ver $repo:$ver-builder; done
+  - echo docker push $repo:latest $repo:latest-builder
+
