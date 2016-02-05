@@ -19,9 +19,12 @@ docker run --rm fingershock/ruby ruby -e 'puts "Hello World"'
 Hello World
 ```
 
-The -builder image includes build tools and compilers for bundle install jobs. Use it to assemble dependencies into a shared vendor volume and 
+The -builder image includes build tools and compilers for use by bundler. Use it to assemble dependencies into a shared vendor volume and
 then copy those files into a new image based on the runtime.
 ```sh
-docker run --rm fingershock/ruby:latest-builder bundle help
+docker run --rm -v $PWD/test:/usr/src/app:rw fingershock/ruby:latest-builder bundle update
+docker run --rm -v $PWD/test:/usr/src/app:rw fingershock/ruby:latest-builder bundle install --deployment
+docker build -t testapp test
+docker run -it --rm testapp bundle list
 ```
 
