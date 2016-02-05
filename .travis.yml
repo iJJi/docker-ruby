@@ -16,10 +16,14 @@ before_script:
 script:
   - docker build -t $repo:latest -f Dockerfile-runtime .
   - docker build -t $repo:latest-builder -f Dockerfile-builder .
+  - docker run --rm fingershock/ruby:latest ruby --version
+  - docker run --rm -w /usr/src/app -v $PWD/test:/usr/src/app:rw fingershock/ruby:latest-builder bundle update
+  - docker run --rm -w /usr/src/app -v $PWD/test:/usr/src/app:rw fingershock/ruby:latest-builder bundle install --deployment
   - vertags=$(docker run --rm $repo:latest ruby -e '(0..1).each { |i| puts RUBY_VERSION.split(".")[0..i].join(".") }; puts RUBY_VERSION')
 
 after_success:
   - for ver in $vertags; do docker tag $repo:latest $repo:$ver; docker tag $repo:latest-builder $repo:$ver-builder; done
-  - for ver in $vertags; do docker push $repo:$ver $repo:$ver-builder; done
-  - docker push $repo:latest $repo:latest-builder
+  - for ver in $vertags; do docker push $repo:$ver; docker push $repo:$ver-builder; done
+  - docker push $repo:latest
+  - docker push $repo:latest-builder
 
