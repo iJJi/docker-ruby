@@ -27,3 +27,7 @@ after_success:
   - docker push $repo:latest
   - docker push $repo:latest-builder
 
+notifications:
+  slack:
+    rooms:
+      secure: eQHTlEtEzYf9b421Zb9ZPJ1owS9OEp+ei1Qh/apf6+ji21GtosEDpsuZQ7jNp50KdUOwB9ihdaWB/D0SKPE+4QEWfVXhxKjXtnj0mYNo5qc0RbggXbZTmh99zeiZmGUAV/63M6G8pLzeKP/rfVYDGjHDcbpCaqdgw1M9H+SapV+YEZd+Hpp/w1+1fLQNXK5FoTnkRDO/iv2zv4nYvfHRis2EIKeTa3BucfP9eF+4nf+Le7m6hJ8NLvgU5eKFecKGRYPM384IFepfQcNn4wVLBAG2r4HokamYPQbg1pMD28iQlyl+fEOmOj3lDa9oV/pwjX5QgDRX9EpLY3JN+n+GNGBa/09qw+i6MqThNm3AYonDjlUoVwcczVBrnMtgxxLQhZVjVLw38/bsTmHjnB3R+GTjxky4WGE0SvLtQdz532AmkfkugGYg91uQAj/Yjjt8SbHm1lO4cvL7jfcAPUcjDrbQ/NrJVyF6ZtRugBz729tRbevz4ti2IXbC17f2TeQmvaAS/BjcVrOH5u7JGLRQm09wMaJ6W6fGIUQcPApPe7AGJCe3qIA/51npJuqDErRN08fIlGBbpdPH4Axs1iJTfO8gSnBJYnjqBta5TRI7s7Z9WjzBGvriTG6wNgW+IjmtNa4xGvXLiEBQ+Bt5m7Bf1WO5OA7TacFmuTmHm5yZSao=
