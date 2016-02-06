@@ -20,8 +20,7 @@ Hello World
 ```
 
 
-The latest-builder image includes build tools and compilers for use by bundler. Use it to assemble dependencies into a shared vendor volume and
-then copy those files into a new image based on the runtime.
+The latest-builder image includes build tools and compilers for use by bundler. Use it to assemble dependencies into a shared vendor volume and then copy those files into a new image based on the runtime.
 ```sh
 docker run --rm -v $PWD/test:/usr/src/app:rw fingershock/ruby:latest-builder bundle update
 docker run --rm -v $PWD/test:/usr/src/app:rw fingershock/ruby:latest-builder bundle install --deployment
