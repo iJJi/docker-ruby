@@ -1,0 +1,8 @@
+#!/bin/sh
+
+docker run --rm -v $PWD/test:/usr/src/app:rw fingershock/ruby:latest-builder bundle config --local build.nokogiri --use-system-libraries
+docker run --rm -v $PWD/test:/usr/src/app:rw fingershock/ruby:latest-builder bundle update
+docker run --rm -v $PWD/test:/usr/src/app:rw fingershock/ruby:latest-builder bundle install --deployment
+docker build -t testapp test
+docker run -it --rm testapp bundle exec nokogiri --version
+

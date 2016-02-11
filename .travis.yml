@@ -17,10 +17,7 @@ script:
   - docker build -t $repo:latest -f Dockerfile-runtime .
   - docker build -t $repo:latest-builder -f Dockerfile-builder .
   - docker run --rm fingershock/ruby:latest ruby --version
-  - docker run --rm -v $PWD/test:/usr/src/app:rw fingershock/ruby:latest-builder bundle update
-  - docker run --rm -v $PWD/test:/usr/src/app:rw fingershock/ruby:latest-builder bundle install --deployment
-  - docker build -t testapp test
-  - docker run -it --rm testapp bundle list
+  - ./test/run
   - vertags=$(docker run --rm $repo:latest ruby -e '(0..1).each { |i| puts RUBY_VERSION.split(".")[0..i].join(".") }; puts RUBY_VERSION')
 
 after_success:
