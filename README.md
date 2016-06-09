@@ -8,14 +8,14 @@ It's on [docker-hub](https://hub.docker.com/r/fingershock/ruby/) and [github](ht
 
 ## tags and links
 
- * `latest`, `2.2` [(Dockerfile-runtime)](https://github.com/iJJi/docker-ruby/blob/master/Dockerfile-runtime) [![](https://badge.imagelayers.io/fingershock/ruby:latest.svg)](https://imagelayers.io/?images=fingershock/ruby:latest)
- * `latest-builder`, `2.2` [(Dockerfile-builder)](https://github.com/iJJi/docker-ruby/blob/master/Dockerfile-builder) [![](https://badge.imagelayers.io/fingershock/ruby:latest-builder.svg)](https://imagelayers.io/?images=fingershock/ruby:latest-builder)
+ * `latest`, `2.3` [(Dockerfile-runtime)](https://github.com/iJJi/docker-ruby/blob/master/Dockerfile-runtime) [![](https://badge.imagelayers.io/fingershock/ruby:latest.svg)](https://imagelayers.io/?images=fingershock/ruby:latest)
+ * `latest-builder`, `2.3` [(Dockerfile-builder)](https://github.com/iJJi/docker-ruby/blob/master/Dockerfile-builder) [![](https://badge.imagelayers.io/fingershock/ruby:latest-builder.svg)](https://imagelayers.io/?images=fingershock/ruby:latest-builder)
 
 ## running
 
 The base image is great to run simple ruby scripts or as a base for bundling an app
 ```sh
-docker run --rm fingershock/ruby:2.2 ruby -e 'eval ["275617579627560222f60756e6d257279622b3566716c602f60756e682228647470737a3f2f276963747e27696478657265737562736f6e64756e647e236f6d6f21727f686c666f273034353832333f2271677f263238373234636434393562693563333034666134363363623464393035303461683533316564346f28656c6c6f677f627c6462292e227561646"].pack("h*")'
+docker run --rm fingershock/ruby:latest ruby -e 'eval ["275617579627560222f60756e6d257279622b3566716c602f60756e682228647470737a3f2f276963747e27696478657265737562736f6e64756e647e236f6d6f21727f686c666f273034353832333f2271677f263238373234636434393562693563333034666134363363623464393035303461683533316564346f28656c6c6f677f627c6462292e227561646"].pack("h*")'
 Hello World
 ```
 

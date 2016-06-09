@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM alpine:3.4
 MAINTAINER Bryan Talbot <bryan.talbot@ijji.com>
 RUN apk add --no-cache ruby ruby-bigdecimal ruby-io-console ruby-bundler ca-certificates wget libxslt libxml2
 WORKDIR /usr/src/app
