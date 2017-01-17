@@ -12,10 +12,12 @@ before_install:
 
 before_script:
   - repo=fingershock/ruby
+  - builddate=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+  - buildrev=$(git rev-parse --short HEAD)
 
 script:
-  - docker build -t $repo:latest -f Dockerfile-runtime .
-  - docker build -t $repo:latest-builder -f Dockerfile-builder .
+  - docker build --build-arg VCS_REF=$buildrev --build-arg BUILD_DATE=$builddate -t $repo:latest         -f Dockerfile-runtime .
+  - docker build --build-arg VCS_REF=$buildrev --build-arg BUILD_DATE=$builddate -t $repo:latest-builder -f Dockerfile-builder .
   - docker run --rm fingershock/ruby:latest ruby --version
   - ./test/run
   - vertags=$(docker run --rm $repo:latest ruby -e '(0..1).each { |i| puts RUBY_VERSION.split(".")[0..i].join(".") }; puts RUBY_VERSION')
