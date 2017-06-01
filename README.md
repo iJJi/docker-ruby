@@ -8,8 +8,8 @@ It's on [docker-hub](https://hub.docker.com/r/fingershock/ruby/) and [github](ht
 
 ## tags and links
 
- * `latest`, `2.3` [(Dockerfile-runtime)](https://github.com/iJJi/docker-ruby/blob/master/Dockerfile-runtime) [![](https://images.microbadger.com/badges/image/fingershock/ruby:latest.svg)](https://microbadger.com/images/fingershock/ruby:latest "Get your own image badge on microbadger.com")
- * `latest-builder`, `2.3` [(Dockerfile-builder)](https://github.com/iJJi/docker-ruby/blob/master/Dockerfile-builder) [![](https://images.microbadger.com/badges/image/fingershock/ruby:latest-builder.svg)](https://microbadger.com/images/fingershock/ruby:latest-builder "Get your own image badge on microbadger.com")
+ * `latest`, `2.4` [(Dockerfile-runtime)](https://github.com/iJJi/docker-ruby/blob/master/Dockerfile-runtime) [![](https://images.microbadger.com/badges/image/fingershock/ruby:latest.svg)](https://microbadger.com/images/fingershock/ruby:latest "Get your own image badge on microbadger.com")
+ * `latest-builder`, `2.4` [(Dockerfile-builder)](https://github.com/iJJi/docker-ruby/blob/master/Dockerfile-builder) [![](https://images.microbadger.com/badges/image/fingershock/ruby:latest-builder.svg)](https://microbadger.com/images/fingershock/ruby:latest-builder "Get your own image badge on microbadger.com")
 
 ## running
 
