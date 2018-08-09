@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.8
 MAINTAINER Bryan Talbot <bryan.talbot@ijji.com>
 
 # Build-time metadata as defined at http://label-schema.org

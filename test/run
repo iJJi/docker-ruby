@@ -1,8 +1,5 @@
-#!/bin/sh
+#!/bin/sh -ex
 
-# bundle update is needed here since we do not checkin Gemfile.lock and bundle install --deployment requires the lockfile
-docker run --rm -v $PWD/test:/usr/src/app:rw fingershock/ruby:latest-builder bundle update
-docker run --rm -v $PWD/test:/usr/src/app:rw fingershock/ruby:latest-builder bundle install --deployment
 docker build -t testapp test
 docker run -it --rm testapp bundle exec nokogiri --version
 

@@ -18,7 +18,7 @@ before_script:
 script:
   - docker build --build-arg VCS_REF=$buildrev --build-arg BUILD_DATE=$builddate -t $repo:latest         -f Dockerfile-runtime .
   - docker build --build-arg VCS_REF=$buildrev --build-arg BUILD_DATE=$builddate -t $repo:latest-builder -f Dockerfile-builder .
-  - docker run --rm fingershock/ruby:latest ruby --version
+  - docker run --rm $repo:latest ruby --version
   - ./test/run
   - vertags=$(docker run --rm $repo:latest ruby -e '(0..1).each { |i| puts RUBY_VERSION.split(".")[0..i].join(".") }; puts RUBY_VERSION')
 
