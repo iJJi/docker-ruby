@@ -13,5 +13,5 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vcs-url="https://github.com/iJJi/docker-ruby" \
       org.label-schema.vendor="Ijji, inc."
 
-RUN apk add --no-cache ruby ruby-bigdecimal ruby-io-console ruby-bundler ca-certificates wget libxslt libxml2
+RUN apk add --no-cache ruby ruby-bigdecimal ruby-io-console ruby-bundler ruby-webrick ca-certificates wget libxslt libxml2
 WORKDIR /usr/src/app
