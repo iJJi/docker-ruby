@@ -21,8 +21,6 @@ script:
   - docker run --rm $repo:latest ruby --version
   - ./test/run
   - vertags=$(docker run --rm $repo:latest ruby -e '(0..1).each { |i| puts RUBY_VERSION.split(".")[0..i].join(".") }; puts RUBY_VERSION')
-
-after_success:
   - for ver in $vertags; do docker tag $repo:latest $repo:$ver; docker tag $repo:latest-builder $repo:$ver-builder; done
   - for ver in $vertags; do docker push $repo:$ver; docker push $repo:$ver-builder; done
   - docker push $repo:latest
