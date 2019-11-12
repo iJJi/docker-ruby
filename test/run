@@ -1,5 +1,9 @@
 #!/bin/sh -ex
 
-docker build -t testapp test
-docker run -it --rm testapp bundle exec nokogiri --version
+docker build -t testapp1 test/bundlerV1
+docker run -it --rm testapp1 bundle version
+#docker run -it --rm testapp1 bundle exec nokogiri --version
 
+docker build -t testapp2 test/bundlerV2
+docker run -it --rm testapp2 bundle version
+#docker run -it --rm testapp2 bundle exec nokogiri --version
