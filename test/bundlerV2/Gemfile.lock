@@ -2,10 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     json (2.2.0)
-    mini_portile2 (2.4.0)
-    nokogiri (1.10.5)
-      mini_portile2 (~> 2.4.0)
-    rack (2.0.7)
+    rack (2.0.8)
 
 PLATFORMS
   ruby
@@ -13,7 +10,6 @@ PLATFORMS
 DEPENDENCIES
   bundler
   json
-  nokogiri
   rack
 
 BUNDLED WITH
